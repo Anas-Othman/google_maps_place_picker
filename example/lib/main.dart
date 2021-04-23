@@ -3,7 +3,6 @@ import 'package:google_maps_place_picker/google_maps_place_picker.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 // Your api key storage.
-import 'keys.dart';
 
 void main() => runApp(MyApp());
 
@@ -47,7 +46,7 @@ class MyApp extends StatelessWidget {
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
 
-  static final kInitialPosition = LatLng(-33.8567844, 151.213108);
+  static final kInitialPosition = LatLng(23.8859, 45.0792);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -75,12 +74,13 @@ class _HomePageState extends State<HomePage> {
                     MaterialPageRoute(
                       builder: (context) {
                         return PlacePicker(
-                          apiKey: APIKeys.apiKey,
-                          initialPosition: HomePage.kInitialPosition,
+                          apiKey: "",
+                          initialPosition: LatLng(26.8206, 30.8025),
                           useCurrentLocation: true,
                           selectInitialPosition: true,
-
-                          //usePlaceDetailSearch: true,
+                          strictbounds: true,
+                          autocompleteLanguage: "ar",
+                          autocompleteRadius: 100,
                           onPlacePicked: (result) {
                             selectedPlace = result;
                             Navigator.of(context).pop();

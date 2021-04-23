@@ -288,6 +288,7 @@ class _PlacePickerState extends State<PlacePicker> {
               sessionToken: provider!.sessionToken,
               hintText: widget.hintText,
               searchingText: widget.searchingText,
+              initialPosition: widget.initialPosition,
               debounceMilliseconds: widget.autoCompleteDebounceInMilliseconds,
               onPicked: (prediction) {
                 _pickPrediction(prediction);

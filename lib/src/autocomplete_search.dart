@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_place_picker/google_maps_place_picker.dart';
 import 'package:google_maps_place_picker/providers/place_provider.dart';
 import 'package:google_maps_place_picker/providers/search_provider.dart';
@@ -32,6 +33,7 @@ class AutoCompleteSearch extends StatefulWidget {
       this.region,
       this.initialSearchString,
       this.searchForInitialValue,
+      this.initialPosition,
       this.autocompleteOnTrailingWhitespace})
       : assert(searchBarController != null),
         super(key: key);
@@ -39,6 +41,7 @@ class AutoCompleteSearch extends StatefulWidget {
   final String? sessionToken;
   final String? hintText;
   final String? searchingText;
+  final LatLng? initialPosition;
   final double height;
   final EdgeInsetsGeometry contentPadding;
   final int? debounceMilliseconds;
@@ -280,7 +283,8 @@ class AutoCompleteSearchState extends State<AutoCompleteSearch> {
       final PlacesAutocompleteResponse response = await provider.places.autocomplete(
         searchTerm,
         sessionToken: widget.sessionToken,
-        location: provider.currentPosition == null ? null : Location(lat: provider.currentPosition!.latitude, lng: provider.currentPosition!.longitude),
+        // location: provider.currentPosition == null ? null : Location(lat: provider.currentPosition!.latitude, lng: provider.currentPosition!.longitude),
+        location: Location(lat:widget.initialPosition!.latitude , lng: widget.initialPosition!.longitude),
         offset: widget.autocompleteOffset,
         radius: widget.autocompleteRadius,
         language: widget.autocompleteLanguage,
