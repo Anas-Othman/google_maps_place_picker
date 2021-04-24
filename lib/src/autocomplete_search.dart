@@ -17,6 +17,7 @@ class AutoCompleteSearch extends StatefulWidget {
       required this.sessionToken,
       required this.onPicked,
       required this.appBarKey,
+      required this.centerForSearching,
       this.hintText,
       this.searchingText = "Searching...",
       this.height = 40,
@@ -42,6 +43,7 @@ class AutoCompleteSearch extends StatefulWidget {
   final String? hintText;
   final String? searchingText;
   final LatLng? initialPosition;
+  final LatLng? centerForSearching;
   final double height;
   final EdgeInsetsGeometry contentPadding;
   final int? debounceMilliseconds;
@@ -284,7 +286,7 @@ class AutoCompleteSearchState extends State<AutoCompleteSearch> {
         searchTerm,
         sessionToken: widget.sessionToken,
         // location: provider.currentPosition == null ? null : Location(lat: provider.currentPosition!.latitude, lng: provider.currentPosition!.longitude),
-        location: Location(lat:widget.initialPosition!.latitude , lng: widget.initialPosition!.longitude),
+        location: Location(lat:widget.centerForSearching!.latitude , lng: widget.centerForSearching!.longitude),
         offset: widget.autocompleteOffset,
         radius: widget.autocompleteRadius,
         language: widget.autocompleteLanguage,

@@ -24,6 +24,7 @@ class PlacePicker extends StatefulWidget {
     required this.apiKey,
     this.onPlacePicked,
     required this.initialPosition,
+    required this.centerForSearching,
     this.useCurrentLocation,
     this.desiredLocationAccuracy = LocationAccuracy.high,
     this.onMapCreated,
@@ -66,6 +67,7 @@ class PlacePicker extends StatefulWidget {
   final String apiKey;
 
   final LatLng initialPosition;
+  final LatLng centerForSearching;
   final bool? useCurrentLocation;
   final LocationAccuracy desiredLocationAccuracy;
 
@@ -287,6 +289,7 @@ class _PlacePickerState extends State<PlacePicker> {
               searchBarController: searchBarController,
               sessionToken: provider!.sessionToken,
               hintText: widget.hintText,
+              centerForSearching: widget.centerForSearching,
               searchingText: widget.searchingText,
               initialPosition: widget.initialPosition,
               debounceMilliseconds: widget.autoCompleteDebounceInMilliseconds,
