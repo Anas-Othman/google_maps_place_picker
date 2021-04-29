@@ -49,7 +49,7 @@ class PlaceProvider extends ChangeNotifier {
 
     } catch (e) {
       print(e);
-      currentPosition = Position(longitude: 39.1925, latitude: 21.4858, timestamp: DateTime(222222), accuracy: 100, altitude: 22, heading: 0, speed: 0, speedAccuracy: 0);
+      currentPosition = Position(longitude: 39.1925, latitude: 21.4858, timestamp: DateTime(222222), accuracy: 13.151000022888184, altitude: 120.87387402425446, heading: 0, speed: 0, speedAccuracy: 0);
 
     }
 
